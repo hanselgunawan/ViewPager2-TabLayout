@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                             ContextCompat.getColor(applicationContext, R.color.colorAccent)
                         badgeDrawable.isVisible = true
                         badgeDrawable.number = 100
+                        badgeDrawable.maxCharacterCount = 3
                     }
                 }
             }
