@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ViewPager2TabLayout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delivered_orders_string">Delivered Orders</string>
+    <string name="confirmed_orders_string">Confirmed Orders</string>
+    <string name="pending_orders_string">Pending Orders</string>
 </resources>
