@@ -2,6 +2,7 @@ package com.hanseltritama.viewpager2tablayout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -31,6 +32,11 @@ class MainActivity : AppCompatActivity() {
                     else -> {
                         tab.text = "Delivered"
                         tab.setIcon(R.drawable.ic_delivered)
+                        val badgeDrawable = tab.orCreateBadge
+                        badgeDrawable.backgroundColor =
+                            ContextCompat.getColor(applicationContext, R.color.colorAccent)
+                        badgeDrawable.isVisible = true
+                        badgeDrawable.number = 100
                     }
                 }
             }
