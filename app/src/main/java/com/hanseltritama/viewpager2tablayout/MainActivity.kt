@@ -24,10 +24,19 @@ class MainActivity : AppCompatActivity() {
                     0 -> {
                         tab.text = "Pending"
                         tab.setIcon(R.drawable.ic_pending)
+                        val badgeDrawable = tab.orCreateBadge
+                        badgeDrawable.backgroundColor =
+                            ContextCompat.getColor(applicationContext, R.color.colorAccent)
+                        badgeDrawable.isVisible = true
                     }
                     1 -> {
                         tab.text = "Confirmed"
                         tab.setIcon(R.drawable.ic_confirmed)
+                        val badgeDrawable = tab.orCreateBadge
+                        badgeDrawable.backgroundColor =
+                            ContextCompat.getColor(applicationContext, R.color.colorAccent)
+                        badgeDrawable.isVisible = true
+                        badgeDrawable.number = 7
                     }
                     else -> {
                         tab.text = "Delivered"
@@ -44,6 +53,14 @@ class MainActivity : AppCompatActivity() {
         )
 
         tabLayoutMediator.attach()
+
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val badgeDrawable = tabLayout.getTabAt(position)?.orCreateBadge
+                badgeDrawable?.isVisible = false
+            }
+        })
 
     }
 }
